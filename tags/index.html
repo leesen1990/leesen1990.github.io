@@ -275,6 +275,33 @@
 
 
 
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="tags/index.html" data-title="标签" data-url="http://yoursite.com/tags/index.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'leesen'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
@@ -298,11 +325,11 @@
             <div class="social-group col m3 s12">
                 <h5 class="white-text">社交</h5>
                 
-                    <a class="social-link" href="http://weibo.com/1956184117" target="_blank">
+                    <a class="social-link" href="http://weibo.cn/leesen345" target="_blank">
                         <i class="fa fa-2x fa-weibo"></i>
                     </a>
                 
-                    <a class="social-link" href="https://github.com/raytaylorlin" target="_blank">
+                    <a class="social-link" href="https://github.com/leesen1990" target="_blank">
                         <i class="fa fa-2x fa-github"></i>
                     </a>
                 
@@ -317,9 +344,9 @@
             <div class="col m9 s12">
                 <h5 class="white-text">友情链接</h5>
                 
-                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                    <a class="social-link" href="https://leesen1990.github.io/" target="_blank">raytaylorism主题作者的技术博客</a>
                 
-                    <a class="social-link" href="https://github.com/raytaylorlin" target="_blank">Github地址（测试友情链接）</a>
+                    <a class="social-link" href="https://github.com/leesen1990" target="_blank">Github地址（友情链接）</a>
                 
             </div>
             
@@ -424,7 +451,7 @@
                     }
                 }
             });
-            var searchXml = "";
+            var searchXml = "search.xml";
             if (searchXml.length == 0) {
              	searchXml = "search.xml";
             }
