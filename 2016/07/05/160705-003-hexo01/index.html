@@ -7,13 +7,16 @@
 
     
 
-    <title>blog | leesen的专属博客, welcome to lisen&#39;s world !</title>
+    <title>Mac下hexo初级配置 | leesen的专属博客, welcome to lisen&#39;s world !</title>
     <meta name="author" content="John Doe">
+    
+    <meta name="description" content="关于本人总结的hexo的基本用法
+Mac下hexo配置:环境配置Hexo官网上本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。…">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="Mac下hexo初级配置"/>
     <meta property="og:site_name" content="leesen的专属博客"/>
 
     
@@ -231,36 +234,167 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper light-green lighten-2">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
 
         
-            <a class="breadcrumb" href="/tags/blog/">blog</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Mac下hexo初级配置</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2016-07-05T08:02:04.000Z"><a href="/2016/07/05/160705-003-hexo01/">2016-07-05</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/2016/07/05/160705-002-markDown-zuoyebuluo/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-07-05T03:09:00.000Z">2016-07-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                MarkDown_作业部落使用
-            </a>
-        
-            <a href="/2016/07/05/160705-001-blog/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-07-05T03:02:04.000Z">2016-07-05</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                建站日志
-            </a>
+            <a href="/tags/hexo/" class="chip red lighten-1">hexo</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Mac下hexo配置"><span class="section table-of-contents-text">Mac下hexo配置:</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#关联Github"><span class="section table-of-contents-text">关联Github</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <hr>
+<p>关于本人总结的hexo的基本用法</p>
+<h2 id="Mac下hexo配置"><a href="#Mac下hexo配置" class="headerlink" title="Mac下hexo配置:"></a>Mac下hexo配置:</h2><p>环境配置<br><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo官网</a>上本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。…<br><a id="more"></a></p>
+<p>1.Node.js<br>用来生成静态页面。移步<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>，下载v5.5.0 Stable 一路安装即可。</p>
+<p>2.Git<br>用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再赘述。如果没有Xcode可以参考Hexo官网上的安装方法。</p>
+<p>安装Hexo<br>当Node.js和Git都安装好后就可以正式安装Hexo了，终端执行如下命令：</p>
+<p>$ sudo npm install -g hexo</p>
+<p>输入管理员密码（Mac登录密码）即开始安装 <code>(sudo:linux系统管理指令  -g:全局安装)</code></p>
+<blockquote>
+<p>注意坑一：Hexo官网上的安装命令是$ npm install -g<br>hexo-cli，安装时不要忘记前面加上sudo，否则会因为权限问题报错。</p>
+</blockquote>
+<p>初始化<br>终端cd到一个你选定的目录，执行hexo init命令：</p>
+<p>$ hexo init blog</p>
+<p>blog是你建立的文件夹名称。cd到blog文件夹下，执行如下命令，安装npm：</p>
+<p>$ npm install</p>
+<p>执行如下命令，开启hexo服务器：</p>
+<p>$ hexo s</p>
+<p>此时，浏览器中打开网址<a href="http://localhost:4000，能看到如下页面：" target="_blank" rel="external">http://localhost:4000，能看到如下页面：</a><br><img src="http://upload-images.jianshu.io/upload_images/985173-6538ff6c494aeb9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>本地设置好后，接下来开始关联Github。</p>
+<h2 id="关联Github"><a href="#关联Github" class="headerlink" title="关联Github"></a>关联Github</h2><p>1.添加ssh key到Github<br>1.1.检查SSH keys是否存在Github<br>执行如下命令，检查SSH keys是否存在。如果有文件id_rsa.pub或id_dsa.pub，则直接进入步骤1.3将SSH key添加到Github中，否则进入下一步生成SSH key。</p>
+<p>$ ls -al ~/.ssh</p>
+<p>1.2.生成新的ssh key<br>执行如下命令生成public/private rsa key pair，注意将your_email@example.com换成你自己注册Github的邮箱地址。</p>
+<p>$ ssh-keygen -t rsa -C “your_email@example.com”</p>
+<blockquote>
+<p>默认会在相应路径下（~/.ssh/id_rsa.pub）生成id_rsa和id_rsa.pub两个文件。</p>
+</blockquote>
+<p>1.3.将ssh key添加到Github中<br>Find前往文件夹~/.ssh/id_rsa.pub打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到Github的Add SSH key页面即可。</p>
+<p>进入Github –&gt; Settings –&gt; SSH keys –&gt; add SSH key:</p>
+<p>Title里任意添一个标题，将复制的内容粘贴到Key里，点击下方Add key绿色按钮即可。</p>
+<p>2.创建仓库<br>登录你的Github帐号，新建仓库，名为用户名.github.io固定写法，leesen1990.github.io即下图中1所示：<br><img src="http://upload-images.jianshu.io/upload_images/985173-e04632cf98208a52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p>本地的blog文件夹下内容为：</p>
+<p>_config.yml<br>db.json<br>node_modules<br>package.json<br>scaffolds<br>source<br>themes</p>
+<p>终端cd到blog文件夹下，vim打开_config.yml，命令如下：</p>
+<p>$ vim _config.yml</p>
+<p>打开后往下滑到最后，修改成下边的样子：</p>
+<p>deploy:<br>type: git<br>repository: <a href="https://github.com/leesen1990/leesen1990.github.io.git" target="_blank" rel="external">https://github.com/leesen1990/leesen1990.github.io.git</a><br>branch: master</p>
+<p>你需要将repository后leesen1990换成你自己的用户名，地址在上图2位置获取。hexo 3.1.1版本后type:值为git。</p>
+<blockquote>
+<p>注意坑二：在配置所有的_config.yml文件时（包括theme中的），在所有的冒号:后边都要加一个空格，否则执行hexo命令会报错，切记<br>切记</p>
+</blockquote>
+<p>在blog文件夹目录下执行生成静态页面命令：</p>
+<p>$ hexo generate        或者：hexo g</p>
+<p>此时若出现如下报错：<br>ERROR Local hexo not found in ~/blog<br>ERROR Try runing: ‘npm install hexo –save’<br>则执行命令：<br>npm install hexo –save<br>若无报错，自行忽略此步骤。</p>
+<p>再执行配置命令：</p>
+<p>$ hexo deploy            或者：hexo d</p>
+<blockquote>
+<p>注意坑三：若执行命令hexo deploy仍然报错：无法连接git，则执行如下命令来安装hexo-deployer-git：</p>
+</blockquote>
+<p>$ npm install hexo-deployer-git –save</p>
+<p>再次执行hexo generate和hexo deploy命令</p>
+<p>此时，浏览器中打开网址<a href="http://leesen1990.github.io（将leesen1990换成你的用户名）能看到和打开http://localhost:4000时一样的页面。" target="_blank" rel="external">http://leesen1990.github.io（将leesen1990换成你的用户名）能看到和打开http://localhost:4000时一样的页面。</a></p>
+<p>3.发布文章<br>终端cd到blog文件夹下，执行如下命令新建文章：</p>
+<p>hexo new “postName”</p>
+<p>名为postName.md的文件会建在目录/blog/source/_posts下。你当然可以用vim来编辑文章。我在用Mou编辑器，支持预览，虽然其预览主题并非我喜欢，如果你有好用的markdown编辑器请推荐给我，感激不尽！</p>
+<p>文章编辑完成后，终端cd到blog文件夹下，执行如下命令来发布：</p>
+<p>hexo generate             //生成静态页面<br>hexo deploy               //将文章部署到Github</p>
+<p><strong>至此，Mac上搭建基于Github的Hexo博客就完成了。下面的内容是介绍安装theme，添加评论功能和绑定个人域名，如果有兴趣且还有耐心的话，请继续吧。</strong></p>
+<p>安装theme<br>你可以到Hexo官网主题页去搜寻自己喜欢的theme。这里以<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>为例</p>
+<p>终端cd到 blog 目录下执行如下命令：</p>
+<p>$ git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+<p>将blog目录下_config.yml里theme的名称landscape修改为next</p>
+<p>终端cd到blog目录下执行如下命令(每次部署文章的步骤)：</p>
+<p>$ hexo clean           //清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
+<p>$ hexo g             //生成缓存和静态文件</p>
+<p>$ hexo d             //重新部署到服务器</p>
+<p>至于更改theme内容，比如名称，描述，头像等去修改blog/_config.yml文件和blog/themes/next/_config.yml文件中对应的属性名称即可， 不要忘记冒号:后加空格。 <a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 使用文档</a>里有极详细的介绍。</p>
+<p>绑定个人域名<br>现在使用的域名是Github提供的二级域名，也可以绑定为自己的个性域名。购买域名，可以到<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">GoDaddy官网</a>，网友亲切称呼为：狗爹，也可以到阿里万网购买。我是在万网买的，可直接在其网站做域名解析。</p>
+<p>1.Github端<br>在<strong><em>/blog/themes/landscape/source</em></strong>目录下新建文件名为：CNAME文件，注意没有后缀名！直接将自己的域名如：leesen1990.com写入。</p>
+<p>终端cd到blog目录下执行如下命令重新部署：</p>
+<p>$ hexo clean</p>
+<p>$ hexo g</p>
+<p>$ hexo d</p>
+<blockquote>
+<p>注意坑四：网上许多都是说在Github上直接新建CNAME文件，如果这样的话，在你下一次执行hexo<br>d部署命令后CNAME文件就消失了，因为本地没有此文件嘛。</p>
+</blockquote>
+<p>2.域名解析<br>如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。登录万网，在你购买的域名后边点击：解析 –&gt; 添加解析</p>
+<p>记录类型：CNAME</p>
+<p>主机记录：将域名解析为example.com（不带www），填写@或者不填写</p>
+<p>记录值：leesen1990.github.io. (不要忘记最后的.，leesen1990改为你自己的用户名)，点击保存即可，如下图：<br><img src="http://upload-images.jianshu.io/upload_images/985173-f1c2cd896991e05f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<p>域名解析<br>此时，点击访问<a href="http://leesen1990.com和访问http://leesen1990.github.io效果一致，大功告成！" target="_blank" rel="external">http://leesen1990.com和访问http://leesen1990.github.io效果一致，大功告成！</a></p>
+<p>后记<br>以上便是我搭建leesen的个人博客(leesen1990.github.io)的全过程，希望对大家有所帮助，欢迎吐槽～</p>
+<p><strong>转载请保留原文地址</strong></p>
+<p><strong>参考链接</strong><br><a href="https://hexo.io/docs" target="_blank" rel="external"><strong>Hexo官网</strong></a><br><strong><a href="http://leopardpan.github.io/2015/08/12/hexo/" target="_blank" rel="external">HEXO</a></strong><br><a href="http://www.jianshu.com/p/31cbbbc5f9fa/" target="_blank" rel="external">如何生成SSH key</a></p>
+<p>文／leesen（个人博客）<br>原文链接：<a href="http://www.jianshu.com/p/13e64c9e2295" target="_blank" rel="external">http://www.jianshu.com/p/13e64c9e2295</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“leesen的GithubPages”。</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/07/05/160705-003-hexo01/" data-title="Mac下hexo初级配置" data-url="http://yoursite.com/2016/07/05/160705-003-hexo01/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'leesen'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
